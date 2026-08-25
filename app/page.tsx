@@ -1,69 +1,114 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Rangratri Events | Navratri Mahautsav 2026",
+  description:
+    "Rangratri Events presents Navratri Mahautsav 2026 in Katihar — a celebration of culture, music, Garba, Dandiya and unforgettable moments.",
+};
+
+import HeroSection from "@/components/hero/HeroSection";
+import MemoriesPreview from "@/components/gallery/MemoriesPreview";
+import EventPreview from "@/components/event/EventPreview";
+import EventHighlights from "@/components/event/EventHighlights";
+import SponsorshipPreview from "@/components/sponsorship/SponsorshipPreview";
+import InstagramGateway from "@/components/social/InstagramGateway";
+import FinalCTA from "@/components/ui/FinalCTA";
+
+import { event } from "@/data/event";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="overflow-hidden">
+      {/* =================================================
+          HERO
+          ================================================= */}
+      <HeroSection />
+
+      {/* =================================================
+          EXPERIENCE
+          ================================================= */}
+      <section
+        id="experience"
+        className="rr-section rr-atmosphere bg-[#08030f]"
+      >
+        <div className="rr-container">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            {/* =================================================
+                INTRODUCTION
+
+                Centered intentionally to establish a stronger
+                visual axis for the section.
+                ================================================= */}
+            <div className="mx-auto w-full max-w-2xl text-center lg:col-span-2">
+              <p className="rr-label">The Experience</p>
+
+              <h2 className="rr-display rr-display-center rr-gold-gradient mt-8 text-4xl md:text-5xl lg:text-6xl">
+                {event.experience.title}
+              </h2>
+
+              <div className="rr-divider mx-auto mt-8">
+                <span className="rr-divider-dot" />
+              </div>
+
+              <p className="rr-editorial mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-[#eadfca]/75 md:text-2xl">
+                A night built around movement, music, light and the people who
+                make the celebration unforgettable.
+              </p>
+            </div>
+
+            {/* =================================================
+                EXPERIENCE FEATURES
+                ================================================= */}
+            <div className="grid gap-4 sm:grid-cols-2 lg:col-span-2">
+              {event.experience.features.map((feature) => (
+                <article
+                  key={feature.title}
+                  className="rr-card rr-frame min-h-[180px]"
+                >
+                  <div className="rr-corner rr-corner-top-left" />
+                  <div className="rr-corner rr-corner-bottom-right" />
+
+                  <p className="rr-label">{feature.title}</p>
+
+                  <p className="rr-body mt-8 max-w-sm text-sm leading-7 text-[#eadfca]/75 sm:text-base">
+                    {feature.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      {/* =================================================
+          2025 MEMORIES
+          ================================================= */}
+      <MemoriesPreview />
+
+      {/* =================================================
+          2026 EVENT
+          ================================================= */}
+      <EventPreview />
+
+      {/* =================================================
+          EVENT HIGHLIGHTS
+          ================================================= */}
+      <EventHighlights />
+
+      {/* =================================================
+          SPONSORSHIP
+          ================================================= */}
+      <SponsorshipPreview />
+
+      {/* =================================================
+          INSTAGRAM
+          ================================================= */}
+      <InstagramGateway />
+
+      {/* =================================================
+          FINAL CTA
+          ================================================= */}
+      <FinalCTA />
+    </main>
   );
 }

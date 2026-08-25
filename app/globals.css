@@ -1,26 +1,937 @@
 @import "tailwindcss";
 
+/* =========================================================
+   RANGRATRI — GLOBAL DESIGN SYSTEM
+   Royal Night Festival
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* -------------------------------------------------------
+     COLOR SYSTEM
+     ------------------------------------------------------- */
+
+  --rr-midnight: #08030f;
+  --rr-midnight-soft: #0d0518;
+  --rr-purple-deep: #12061d;
+  --rr-purple: #190822;
+  --rr-purple-light: #251039;
+
+  --rr-gold-deep: #b77f18;
+  --rr-gold: #d6a52d;
+  --rr-gold-bright: #e4b84a;
+  --rr-gold-soft: #f4d47a;
+
+  --rr-ivory: #fff5dd;
+  --rr-ivory-soft: #eadfca;
+
+  --rr-amber: #ffb52e;
+  --rr-orange: #ff8a18;
+
+  --rr-red: #c91f46;
+  --rr-magenta: #d52667;
+  --rr-wine: #6d1b68;
+
+  /* -------------------------------------------------------
+     BACKGROUND SYSTEM
+     ------------------------------------------------------- */
+
+  --rr-bg: var(--rr-midnight);
+  --rr-bg-soft: var(--rr-midnight-soft);
+  --rr-surface: rgba(25, 8, 35, 0.72);
+  --rr-surface-solid: #160923;
+
+  /* -------------------------------------------------------
+     BORDER SYSTEM
+     ------------------------------------------------------- */
+
+  --rr-border: rgba(214, 165, 45, 0.28);
+  --rr-border-strong: rgba(228, 184, 74, 0.55);
+  --rr-border-soft: rgba(255, 245, 221, 0.1);
+
+  /* -------------------------------------------------------
+     TEXT SYSTEM
+     ------------------------------------------------------- */
+
+  --rr-text: var(--rr-ivory);
+  --rr-text-soft: var(--rr-ivory-soft);
+  --rr-text-muted: rgba(234, 223, 202, 0.68);
+  --rr-text-gold: var(--rr-gold-soft);
+
+  /* -------------------------------------------------------
+     TYPOGRAPHY
+     ------------------------------------------------------- */
+
+  /*
+   * Cormorant Garamond gives the main display typography
+   * the softer, more editorial luxury-serif character
+   * desired for the large golden headings.
+   */
+  --rr-font-display:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  /*
+   * Editorial body copy continues to use the same serif
+   * family for visual continuity.
+   */
+  --rr-font-editorial:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  --rr-font-body:
+    "Manrope",
+    Inter,
+    Arial,
+    sans-serif;
+
+  /* -------------------------------------------------------
+     TYPE SCALE
+     ------------------------------------------------------- */
+
+  --rr-text-xs: 0.72rem;
+  --rr-text-sm: 0.85rem;
+  --rr-text-base: 1rem;
+  --rr-text-lg: 1.125rem;
+  --rr-text-xl: 1.35rem;
+  --rr-text-2xl: 1.75rem;
+  --rr-text-3xl: 2.25rem;
+  --rr-text-4xl: 3rem;
+  --rr-text-5xl: 4rem;
+  --rr-text-hero: clamp(3.4rem, 9vw, 8rem);
+
+  /* -------------------------------------------------------
+     LETTER SPACING
+     ------------------------------------------------------- */
+
+  --rr-tracking-tight: -0.02em;
+  --rr-tracking-normal: 0;
+  --rr-tracking-wide: 0.08em;
+  --rr-tracking-wider: 0.16em;
+  --rr-tracking-label: 0.28em;
+
+  /* -------------------------------------------------------
+     SPACING
+     ------------------------------------------------------- */
+
+  --rr-space-1: 0.25rem;
+  --rr-space-2: 0.5rem;
+  --rr-space-3: 0.75rem;
+  --rr-space-4: 1rem;
+  --rr-space-5: 1.25rem;
+  --rr-space-6: 1.5rem;
+  --rr-space-8: 2rem;
+  --rr-space-10: 2.5rem;
+  --rr-space-12: 3rem;
+  --rr-space-16: 4rem;
+  --rr-space-20: 5rem;
+  --rr-space-24: 6rem;
+  --rr-space-section: clamp(5rem, 10vw, 10rem);
+
+  /* -------------------------------------------------------
+     RADIUS
+     ------------------------------------------------------- */
+
+  --rr-radius-sm: 0.25rem;
+  --rr-radius-md: 0.5rem;
+  --rr-radius-lg: 0.75rem;
+  --rr-radius-xl: 1rem;
+
+  /* -------------------------------------------------------
+     SHADOWS
+     ------------------------------------------------------- */
+
+  --rr-shadow-soft:
+    0 12px 40px rgba(0, 0, 0, 0.28);
+
+  --rr-shadow-gold:
+    0 0 30px rgba(214, 165, 45, 0.14);
+
+  --rr-shadow-gold-strong:
+    0 0 42px rgba(228, 184, 74, 0.22);
+
+  /* -------------------------------------------------------
+     TRANSITIONS
+     ------------------------------------------------------- */
+
+  --rr-transition-fast: 180ms ease;
+  --rr-transition-base: 320ms ease;
+  --rr-transition-slow: 700ms ease;
 }
+
+/* =========================================================
+   TAILWIND THEME BRIDGE
+   ========================================================= */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--rr-font-display);
+  --font-editorial: var(--rr-font-editorial);
+  --font-sans: var(--rr-font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  background: var(--rr-bg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(109, 27, 104, 0.22),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 138, 24, 0.08),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      var(--rr-midnight-soft) 0%,
+      var(--rr-midnight) 50%,
+      #050209 100%
+    );
+  color: var(--rr-text);
+  font-family: var(--rr-font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(214, 165, 45, 0.28);
+  color: var(--rr-ivory);
+}
+
+/* =========================================================
+   GLOBAL ELEMENTS
+   ========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--rr-font-display);
+  font-weight: 500;
+  letter-spacing: var(--rr-tracking-tight);
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* =========================================================
+   TYPOGRAPHY UTILITIES
+   ========================================================= */
+
+.rr-display {
+  font-family: var(--rr-font-display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+/*
+ * Explicit center utility for headings that are intended
+ * to share the same visual center axis.
+ */
+.rr-display-center {
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.rr-editorial {
+  font-family: var(--rr-font-editorial);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+.rr-body {
+  font-family: var(--rr-font-body);
+  line-height: 1.7;
+}
+
+.rr-label {
+  font-family: var(--rr-font-body);
+  font-size: var(--rr-text-xs);
+  font-weight: 700;
+  letter-spacing: var(--rr-tracking-label);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--rr-gold-soft);
+}
+
+.rr-meta {
+  font-family: var(--rr-font-body);
+  font-size: var(--rr-text-sm);
+  font-weight: 600;
+  letter-spacing: var(--rr-tracking-wide);
+  color: var(--rr-text-muted);
+}
+
+/* =========================================================
+   GOLD TYPOGRAPHY
+   ========================================================= */
+
+.rr-gold-text {
+  color: var(--rr-gold-soft);
+}
+
+.rr-gold-gradient {
+  background:
+    linear-gradient(
+      180deg,
+      #fff4c4 0%,
+      #f4d47a 30%,
+      #d6a52d 68%,
+      #b77f18 100%
+    );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.rr-gold-shimmer {
+  background:
+    linear-gradient(
+      110deg,
+      var(--rr-gold-deep) 0%,
+      var(--rr-gold-soft) 38%,
+      #fff8d6 50%,
+      var(--rr-gold-soft) 62%,
+      var(--rr-gold-deep) 100%
+    );
+  background-size: 220% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rr-shimmer 7s linear infinite;
+}
+
+/* =========================================================
+   GOLD DIVIDERS
+   ========================================================= */
+
+.rr-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.rr-divider::before,
+.rr-divider::after {
+  content: "";
+  width: min(110px, 18vw);
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--rr-gold)
+    );
+}
+
+.rr-divider::after {
+  background:
+    linear-gradient(
+      90deg,
+      var(--rr-gold),
+      transparent
+    );
+}
+
+.rr-divider-dot {
+  width: 0.42rem;
+  height: 0.42rem;
+  transform: rotate(45deg);
+  background: var(--rr-gold-bright);
+  box-shadow: 0 0 14px rgba(228, 184, 74, 0.45);
+}
+
+/* =========================================================
+   SECTION SYSTEM
+   ========================================================= */
+
+.rr-section {
+  position: relative;
+  padding-block: var(--rr-space-section);
+  isolation: isolate;
+}
+
+.rr-container {
+  width: min(100% - 2rem, 1180px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .rr-container {
+    width: min(100% - 4rem, 1180px);
+  }
+}
+
+/* =========================================================
+   SURFACES / CARDS
+   ========================================================= */
+
+.rr-surface {
+  position: relative;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(36, 16, 61, 0.88),
+      rgba(13, 5, 24, 0.88)
+    );
+  border: 1px solid var(--rr-border);
+  box-shadow: var(--rr-shadow-soft);
+  backdrop-filter: blur(8px);
+}
+
+.rr-surface-glow {
+  box-shadow:
+    var(--rr-shadow-soft),
+    var(--rr-shadow-gold);
+}
+
+.rr-card {
+  position: relative;
+  padding: var(--rr-space-8);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(37, 16, 57, 0.72),
+      rgba(16, 6, 28, 0.78)
+    );
+  border: 1px solid var(--rr-border);
+  transition:
+    transform var(--rr-transition-base),
+    border-color var(--rr-transition-base),
+    box-shadow var(--rr-transition-base);
+}
+
+.rr-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--rr-border-strong);
+  box-shadow: var(--rr-shadow-gold);
+}
+
+/* =========================================================
+   ORNAMENTAL CORNER FRAME
+   ========================================================= */
+
+.rr-frame {
+  position: relative;
+  border: 1px solid var(--rr-border);
+}
+
+.rr-frame::before,
+.rr-frame::after {
+  content: "";
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  pointer-events: none;
+}
+
+.rr-frame::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid var(--rr-gold-bright);
+  border-left: 1px solid var(--rr-gold-bright);
+}
+
+.rr-frame::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 1px solid var(--rr-gold-bright);
+  border-bottom: 1px solid var(--rr-gold-bright);
+}
+
+/* =========================================================
+   GOLD CORNER ACCENTS
+   ========================================================= */
+
+.rr-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.rr-corner::before,
+.rr-corner::after {
+  content: "";
+  position: absolute;
+  background: var(--rr-gold);
+}
+
+.rr-corner::before {
+  width: 24px;
+  height: 1px;
+  top: 0;
+  left: 0;
+}
+
+.rr-corner::after {
+  width: 1px;
+  height: 24px;
+  top: 0;
+  left: 0;
+}
+
+.rr-corner-top-left {
+  top: 0;
+  left: 0;
+}
+
+.rr-corner-top-right {
+  top: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+
+.rr-corner-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.rr-corner-bottom-right {
+  right: 0;
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   ATMOSPHERIC BACKGROUND
+   ========================================================= */
+
+.rr-atmosphere {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.rr-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(109, 27, 104, 0.2),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 12% 70%,
+      rgba(255, 181, 46, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 88% 70%,
+      rgba(255, 138, 24, 0.08),
+      transparent 25%
+    );
+}
+
+.rr-atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 32%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+}
+
+/* =========================================================
+   SUBTLE MANDALA WATERMARK
+   ========================================================= */
+
+.rr-mandala {
+  position: absolute;
+  width: min(70vw, 760px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(109, 27, 104, 0.15);
+  opacity: 0.42;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle,
+      transparent 0 24%,
+      rgba(109, 27, 104, 0.08) 24% 25%,
+      transparent 25% 42%,
+      rgba(109, 27, 104, 0.05) 42% 43%,
+      transparent 43% 100%
+    );
+}
+
+.rr-mandala::before,
+.rr-mandala::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  border: 1px solid rgba(109, 27, 104, 0.14);
+  transform: rotate(45deg);
+}
+
+.rr-mandala::after {
+  inset: 22%;
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   LIGHT GLOW
+   ========================================================= */
+
+.rr-glow {
+  position: relative;
+}
+
+.rr-glow::after {
+  content: "";
+  position: absolute;
+  inset: auto 15% -20%;
+  height: 45%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255, 181, 46, 0.14),
+      transparent 70%
+    );
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+/* =========================================================
+   PARTICLE EFFECT
+   ========================================================= */
+
+.rr-particles {
+  position: relative;
+  overflow: hidden;
+}
+
+.rr-particles::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(244, 212, 122, 0.6) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 181, 46, 0.45) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle,
+      rgba(213, 38, 103, 0.4) 0 1px,
+      transparent 1.5px
+    );
+  background-size:
+    130px 150px,
+    170px 190px,
+    220px 230px;
+  background-position:
+    10px 20px,
+    60px 90px,
+    120px 40px;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.rr-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.8rem 1.35rem;
+  border: 1px solid transparent;
+  border-radius: var(--rr-radius-sm);
+  font-family: var(--rr-font-body);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition:
+    transform var(--rr-transition-fast),
+    box-shadow var(--rr-transition-base),
+    border-color var(--rr-transition-base),
+    background var(--rr-transition-base);
+}
+
+.rr-button:hover {
+  transform: translateY(-2px);
+}
+
+.rr-button-primary {
+  color: #12061a;
+  background:
+    linear-gradient(
+      180deg,
+      var(--rr-gold-soft),
+      var(--rr-gold)
+    );
+  box-shadow:
+    0 8px 28px rgba(214, 165, 45, 0.18);
+}
+
+.rr-button-primary:hover {
+  box-shadow:
+    0 10px 34px rgba(228, 184, 74, 0.28);
+}
+
+.rr-button-secondary {
+  color: var(--rr-ivory);
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--rr-border-strong);
+}
+
+.rr-button-secondary:hover {
+  background: rgba(214, 165, 45, 0.08);
+  box-shadow: var(--rr-shadow-gold);
+}
+
+/* =========================================================
+   GOLD LINE
+   ========================================================= */
+
+.rr-gold-line {
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--rr-gold),
+      transparent
+    );
+}
+
+/* =========================================================
+   REVEAL / MOTION
+   ========================================================= */
+
+.rr-reveal {
+  animation: rr-reveal 800ms ease both;
+}
+
+.rr-float {
+  animation: rr-float 7s ease-in-out infinite;
+}
+
+.rr-soft-pulse {
+  animation: rr-soft-pulse 4s ease-in-out infinite;
+}
+
+/* =========================================================
+   KEYFRAMES
+   ========================================================= */
+
+@keyframes rr-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rr-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes rr-soft-pulse {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes rr-shimmer {
+  to {
+    background-position: 220% center;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE TYPE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  :root {
+    --rr-space-section: clamp(4rem, 16vw, 6rem);
+    --rr-text-hero: clamp(2.8rem, 15vw, 4.8rem);
+  }
+
+  .rr-card {
+    padding: var(--rr-space-6);
+  }
+}
+
+/* =========================================================
+   RANGRATRI — MOBILE REFINEMENT
+   ========================================================= */
+
+@media (max-width: 767px) {
+  /* Prevent accidental horizontal overflow */
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Container */
+  .rr-container {
+    width: min(100% - 1.5rem, 1180px);
+  }
+
+  /* Section spacing */
+  .rr-section {
+    padding-block: 4rem;
+  }
+
+  /* Typography */
+  .rr-display {
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
+
+  .rr-editorial {
+    line-height: 1.2;
+  }
+
+  .rr-label {
+    letter-spacing: 0.2em;
+  }
+
+  /* Cards */
+  .rr-card {
+    padding: 1.25rem;
+  }
+
+  /* Decorative mandalas should not dominate mobile */
+  .rr-mandala {
+    width: 120vw;
+    opacity: 0.22;
+  }
+
+  /* Reduce decorative frame size */
+  .rr-corner {
+    width: 18px;
+    height: 18px;
+  }
+
+  .rr-corner::before {
+    width: 18px;
+  }
+
+  .rr-corner::after {
+    height: 18px;
+  }
+
+  /* Buttons */
+  .rr-button {
+    min-height: 46px;
+    padding-inline: 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+
+  /* Gold divider */
+  .rr-divider::before,
+  .rr-divider::after {
+    width: min(70px, 18vw);
+  }
+
+  /* Prevent oversized decorative content */
+  .rr-glow::after {
+    inset: auto 5% -15%;
+    height: 35%;
+  }
 }

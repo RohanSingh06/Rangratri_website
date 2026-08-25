@@ -1,0 +1,16 @@
+STEP 1  ✅ Next.js project created
+STEP 2  ✅ Development server running
+STEP 3  → Project architecture
+STEP 4  → Brand/data system
+STEP 5  → Assets
+STEP 6  → Global design system
+STEP 7  → Navbar + footer
+STEP 8  → Homepage
+STEP 9  → Event page
+STEP 10 → Memories
+STEP 11 → Sponsorship
+STEP 12 → FAQ + Contact
+STEP 13 → Mobile refinement
+STEP 14 → SEO + performance
+STEP 15 → Production build
+STEP 16 → GitHub + deployment
