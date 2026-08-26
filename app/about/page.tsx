@@ -16,7 +16,7 @@ Purpose:
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-
+import TeamSection from "@/components/team/TeamSection";
 import { brand } from "@/data/brand";
 
 export const metadata: Metadata = {
@@ -77,12 +77,10 @@ export default function AboutPage() {
               an event.
             </h1>
 
-            {/* Divider sits independently on the center axis. */}
             <div className="rr-divider rr-display-center mx-auto mt-8">
               <span className="rr-divider-dot" />
             </div>
 
-            {/* Controlled editorial width keeps both lines balanced. */}
             <p className="rr-editorial rr-display-center mx-auto mt-12 w-full max-w-[760px] text-center text-xl leading-[1.2] text-[#eadfca]/75 md:mt-16 md:text-3xl">
               Rangratri Events is built around celebration, culture, music,
               movement and the moments that stay with us.
@@ -158,50 +156,51 @@ export default function AboutPage() {
       </section>
 
       {/* =================================================
-    INSTAGRAM
-    ================================================= */}
-<section className="rr-section bg-[#10061c]">
-  <div className="rr-container">
-    <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-      {/* Instagram icon */}
+          TEAM
+          ================================================= */}
+      <TeamSection />
 
+      {/* =================================================
+          INSTAGRAM
+          ================================================= */}
+      <section className="rr-section bg-[#10061c]">
+        <div className="rr-container">
+          <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+            {/* Instagram icon */}
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-[rgba(214,165,45,0.38)] bg-[#190822] text-[#f4d47a]">
+              <InstagramIcon />
+            </div>
 
-      <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-[rgba(214,165,45,0.38)] bg-[#190822] text-[#f4d47a]">
-        <InstagramIcon />
-      </div>
+            {/* Section label */}
+            <p className="rr-label mt-14">Follow Rangratri</p>
 
-      {/* Section label */}
-      <p className="rr-label mt-14">
-        Follow Rangratri
-      </p>
+            {/* Main heading */}
+            <h2 className="rr-display rr-display-center rr-gold-gradient mt-7 max-w-3xl text-4xl md:text-5xl">
+              Stay close to the celebration.
+            </h2>
 
-      {/* Main heading */}
-      <h2 className="rr-display rr-display-center rr-gold-gradient mt-7 max-w-3xl text-4xl md:text-5xl">
-        Stay close to the celebration.
-      </h2>
+            {/* Supporting copy */}
+            <p className="rr-editorial mx-auto mt-8 max-w-2xl text-center text-xl leading-[1.2] text-[#eadfca]/70 md:text-2xl">
+              Follow{" "}
+              <span className="text-[#f4d47a]">
+                {brand.instagramHandle}
+              </span>{" "}
+              for the latest Rangratri moments.
+            </p>
 
-      {/* Supporting copy */}
-      <p className="rr-editorial mx-auto mt-8 max-w-2xl text-center text-xl leading-[1.2] text-[#eadfca]/70 md:text-2xl">
-        Follow{" "}
-        <span className="text-[#f4d47a]">
-          {brand.instagramHandle}
-        </span>{" "}
-        for the latest Rangratri moments.
-      </p>
-
-      {/* CTA */}
-      <a
-        href={brand.instagramUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="rr-button rr-button-primary mt-10"
-      >
-        Visit Instagram
-        <ArrowUpRight size={15} />
-      </a>
-    </div>
-  </div>
-</section>
+            {/* CTA */}
+            <a
+              href={brand.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rr-button rr-button-primary mt-10"
+            >
+              Visit Instagram
+              <ArrowUpRight size={15} />
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* =================================================
           CTA

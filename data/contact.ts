@@ -4,7 +4,7 @@ export const contact = {
     url: "https://www.instagram.com/rangratri.events/",
   },
 
-  phone: "+91-9504181714",
+  phone: "+91-9334661691",
   email: "rangratrieventskatihar@gmail.com",
   facebook: "https://www.facebook.com/share/1G5TdFkoP2/",
   linktree: "",
