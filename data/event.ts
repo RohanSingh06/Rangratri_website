@@ -34,8 +34,8 @@ export const event = {
 
     features: [
       {
-        title: "Entry Gate",
-        description: "Gate 1 · Main Entry",
+        title: "DECORATIONS",
+        description: "Warm lights, vibrant colours and traditional festive elements transform the venue into a celebration of its own.",
       },
       {
         title: "Stage",
