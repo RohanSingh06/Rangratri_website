@@ -22,7 +22,7 @@ export const foundingPartners: TeamMember[] = [
     image: "/team/ayush-gupta.webp",
   },
   {
-    name: "Sourav Gupta",
+    name: "Saurav Gupta",
     role: "Founding Partner",
     image: "/team/sourav-gupta.webp",
   },
