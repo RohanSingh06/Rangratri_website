@@ -32,7 +32,7 @@ import {
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/layout/Footer";
 
-import { site } from "@/data/site";
+import { site, siteUrl } from "@/data/site";
 
 import "./globals.css";
 
@@ -81,6 +81,8 @@ Individual pages can override title/description later.
 */
 
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
+
   title: site.title,
 
   description: site.description,
@@ -134,9 +136,9 @@ export default function RootLayout({
       >
         <Navbar />
 
-        <main className="min-h-screen">
+        <div className="min-h-screen">
           {children}
-        </main>
+        </div>
 
         <Footer />
       </body>

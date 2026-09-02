@@ -1,30 +1,38 @@
 import type { MetadataRoute } from "next";
 
+import { siteUrl } from "@/data/site";
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+
   return [
     {
-      url: "http://localhost:3000/",
-      lastModified: new Date(),
+      url: new URL("/", siteUrl).toString(),
+      lastModified,
     },
     {
-      url: "http://localhost:3000/navratri-mahautsav-2026",
-      lastModified: new Date(),
+      url: new URL("/about", siteUrl).toString(),
+      lastModified,
     },
     {
-      url: "http://localhost:3000/memories",
-      lastModified: new Date(),
+      url: new URL("/navratri-mahautsav-2026", siteUrl).toString(),
+      lastModified,
     },
     {
-      url: "http://localhost:3000/sponsorship",
-      lastModified: new Date(),
+      url: new URL("/memories", siteUrl).toString(),
+      lastModified,
     },
     {
-      url: "http://localhost:3000/faq",
-      lastModified: new Date(),
+      url: new URL("/sponsorship", siteUrl).toString(),
+      lastModified,
     },
     {
-      url: "http://localhost:3000/contact",
-      lastModified: new Date(),
+      url: new URL("/faq", siteUrl).toString(),
+      lastModified,
+    },
+    {
+      url: new URL("/contact", siteUrl).toString(),
+      lastModified,
     },
   ];
 }

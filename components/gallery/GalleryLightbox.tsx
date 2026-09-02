@@ -16,7 +16,7 @@ Purpose:
 */
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -42,6 +42,9 @@ export default function GalleryLightbox({
   onNext,
   onPrevious,
 }: GalleryLightboxProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   /*
   ---------------------------------------------------------
   Keyboard controls
@@ -79,6 +82,55 @@ export default function GalleryLightbox({
     };
   }, [onClose, onNext, onPrevious]);
 
+  useEffect(() => {
+    const previouslyFocusedElement =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+
+    closeButtonRef.current?.focus();
+
+    const handleTabKey = (event: KeyboardEvent) => {
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusableElements = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+
+      if (!focusableElements?.length) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstFocusableElement = focusableElements[0];
+      const lastFocusableElement = focusableElements[focusableElements.length - 1];
+      const activeElement = document.activeElement;
+
+      if (!dialogRef.current?.contains(activeElement)) {
+        event.preventDefault();
+        (event.shiftKey ? lastFocusableElement : firstFocusableElement).focus();
+      } else if (event.shiftKey && activeElement === firstFocusableElement) {
+        event.preventDefault();
+        lastFocusableElement.focus();
+      } else if (!event.shiftKey && activeElement === lastFocusableElement) {
+        event.preventDefault();
+        firstFocusableElement.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleTabKey);
+
+    return () => {
+      window.removeEventListener("keydown", handleTabKey);
+
+      if (previouslyFocusedElement?.isConnected) {
+        previouslyFocusedElement.focus();
+      }
+    };
+  }, []);
+
   /*
   ---------------------------------------------------------
   Prevent page scrolling while lightbox is open
@@ -114,6 +166,7 @@ export default function GalleryLightbox({
 
   return (
     <div
+      ref={dialogRef}
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-3 backdrop-blur-md sm:p-6"
       role="dialog"
       aria-modal="true"
@@ -125,6 +178,7 @@ export default function GalleryLightbox({
           ================================================= */}
 
       <button
+        ref={closeButtonRef}
         type="button"
         onClick={onClose}
         aria-label="Close image viewer"

@@ -18,10 +18,16 @@ import {
   ArrowDown,
   ArrowUpRight,
   MapPin,
+  MessageCircle,
 } from "lucide-react";
 
+import { contact } from "@/data/contact";
 import { event } from "@/data/event";
 import { media } from "@/data/media";
+
+const whatsappUrl = `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(
+  contact.whatsapp.message,
+)}`;
 
 export default function HeroSection() {
   return (
@@ -152,6 +158,24 @@ export default function HeroSection() {
             >
               2025 Memories
             </Link>
+
+            <Link
+              href="/creators"
+              className="rr-button rr-button-secondary w-full px-7 sm:w-auto"
+            >
+              Creator Competition
+              <ArrowUpRight size={15} />
+            </Link>
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rr-button rr-button-secondary w-full px-7 sm:w-auto"
+            >
+              WhatsApp Us
+              <MessageCircle size={15} />
+            </a>
           </div>
 
           {/* Scroll indicator */}

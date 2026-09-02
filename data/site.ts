@@ -13,7 +13,11 @@ Purpose:
 ===========================================================
 */
 
+export const siteUrl = new URL("https://www.rangratrievents.in");
+
 export const site = {
+  url: siteUrl.origin,
+
   /*
   ---------------------------------------------------------
   SEO / SITE METADATA
@@ -76,6 +80,11 @@ export const site = {
     {
       label: "Sponsorship",
       href: "/sponsorship",
+    },
+
+    {
+      label: "Creator Competition",
+      href: "/creators",
     },
 
     {
