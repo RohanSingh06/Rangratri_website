@@ -53,20 +53,6 @@ export const metadata: Metadata = {
 -----------------------------------------------------------
 EVENT STRUCTURED DATA
 -----------------------------------------------------------
-
-This schema only uses information already present in
-data/event.ts.
-
-We intentionally do NOT add:
-- ticket prices
-- exact event times
-- street address
-- ticket URLs
-- performer names
-
-because those details are not currently defined in the
-event data.
------------------------------------------------------------
 */
 
 const eventSchema = {
@@ -112,6 +98,7 @@ EVENT PAGE
 export default function EventPage() {
   return (
     <main className="overflow-hidden bg-[#08030f]">
+
       {/* =================================================
           EVENT STRUCTURED DATA
           ================================================= */}
@@ -128,7 +115,9 @@ export default function EventPage() {
           ================================================= */}
 
       <section className="rr-atmosphere relative overflow-hidden pt-[76px]">
+
         <div className="absolute inset-0 -z-20">
+
           <Image
             src={media.event.background}
             alt=""
@@ -142,13 +131,19 @@ export default function EventPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(109,27,104,0.2),transparent_45%)]" />
 
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#08030f]/40 to-[#08030f]" />
+
         </div>
 
         <div className="rr-container relative flex min-h-[58vh] items-center justify-center py-20 text-center sm:min-h-[65vh] lg:min-h-[70vh]">
+
           <div className="w-full max-w-5xl">
-            <p className="rr-label">Navratri Mahautsav 2026</p>
+
+            <p className="rr-label">
+              Navratri Mahautsav 2026
+            </p>
 
             <div className="relative mx-auto mt-8 max-w-4xl">
+
               <Image
                 src={media.brand.eventWordArt}
                 alt={event.name}
@@ -157,6 +152,7 @@ export default function EventPage() {
                 priority
                 className="mx-auto w-full object-contain"
               />
+
             </div>
 
             <p className="rr-editorial rr-display-center mx-auto mt-8 max-w-3xl text-xl leading-relaxed text-[#fff5dd]/80 md:text-3xl">
@@ -168,39 +164,53 @@ export default function EventPage() {
             </div>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-4 font-sans text-sm text-[#eadfca]/75 sm:flex-row sm:gap-8">
+
               <span className="flex items-center gap-2">
+
                 <CalendarDays
                   size={16}
                   className="text-[#f4d47a]"
                 />
 
                 {event.date.full}
+
               </span>
 
               <span className="flex items-center gap-2">
+
                 <MapPin
                   size={16}
                   className="text-[#f4d47a]"
                 />
 
                 {event.venue.full}
+
               </span>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
+
 
       {/* =================================================
           ENTRY PASSES
           ================================================= */}
 
       <section className="rr-section rr-atmosphere bg-[#10061c]">
-        <div className="rr-container">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="rr-label">Entry Passes</p>
 
-            <h2 className="rr-display rr-gold-gradient mt-8
- text-4xl md:text-5xl">
+        <div className="rr-container">
+
+          <div className="mx-auto max-w-3xl text-center">
+
+            <p className="rr-label">
+              Entry Passes
+            </p>
+
+            <h2 className="rr-display rr-gold-gradient mt-8 text-4xl md:text-5xl">
               Choose your way in.
             </h2>
 
@@ -211,15 +221,23 @@ export default function EventPage() {
             <p className="rr-body mt-7 text-sm leading-7 text-[#eadfca]/60">
               Early Bird prices are live. Limited passes available.
             </p>
+
           </div>
 
+
+          {/* PASS CARDS */}
+
           <div className="mt-12 grid gap-4 md:grid-cols-3">
+
             {passes.map((pass) => (
+
               <article
                 key={pass.id}
                 className="rr-card rr-frame flex min-h-[250px] flex-col"
               >
+
                 <div className="rr-corner rr-corner-top-left" />
+
                 <div className="rr-corner rr-corner-bottom-right" />
 
                 <p className="rr-label">
@@ -230,36 +248,57 @@ export default function EventPage() {
                   {pass.name} Pass
                 </h3>
 
-                <p className="rr-body mt-8
- text-sm leading-7 text-[#eadfca]/65">
+                <p className="rr-body mt-8 text-sm leading-7 text-[#eadfca]/65">
                   {pass.description}
                 </p>
 
                 <div className="mt-auto pt-8">
+
                   <p className="font-sans text-xs font-bold uppercase tracking-[0.16em] text-[#d6a52d]/70">
                     Early Bird Offer
                   </p>
 
                   <div className="mt-2 flex items-baseline gap-3">
+
                     <span className="font-sans text-sm text-[#eadfca]/45 line-through">
                       {passPricing[pass.name]?.regular}
                     </span>
+
                     <span className="rr-display text-3xl text-[#f4d47a]">
                       {passPricing[pass.name]?.earlyBird}
                     </span>
+
                   </div>
+
                 </div>
+
               </article>
+
             ))}
+
           </div>
 
+
+          {/* =================================================
+              BOOK NOW — WHATSAPP
+              ================================================= */}
+
           <div className="mt-10 flex justify-center">
-            <Link href="#booking" className="rr-button rr-button-primary">
+
+            <a
+              href={whatsappBookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rr-button rr-button-primary"
+            >
               Book Now
               <ArrowUpRight size={15} />
-            </Link>
+            </a>
+
           </div>
+
         </div>
+
       </section>
 
 
@@ -268,12 +307,16 @@ export default function EventPage() {
           ================================================= */}
 
       <section className="rr-section bg-[#08030f]">
-        <div className="rr-container">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="rr-label">The Celebration</p>
 
-            <h2 className="rr-display rr-gold-gradient mt-8
- text-4xl md:text-5xl lg:text-6xl">
+        <div className="rr-container">
+
+          <div className="mx-auto max-w-4xl text-center">
+
+            <p className="rr-label">
+              The Celebration
+            </p>
+
+            <h2 className="rr-display rr-gold-gradient mt-8 text-4xl md:text-5xl lg:text-6xl">
               A night made for movement.
             </h2>
 
@@ -285,34 +328,48 @@ export default function EventPage() {
               Garba, Dandiya, music, food, light and shared moments come
               together for one unforgettable Navratri celebration.
             </p>
+
           </div>
+
         </div>
+
       </section>
+
 
       {/* =================================================
           EXPERIENCE FEATURES
           ================================================= */}
 
       <section className="rr-section rr-atmosphere bg-[#10061c]">
-        <div className="rr-container">
-          <div className="mb-12 max-w-3xl">
-            <p className="rr-label">The Experience</p>
 
-            <h2 className="rr-display rr-gold-gradient mt-8
- text-4xl md:text-5xl lg:text-6xl">
+        <div className="rr-container">
+
+          <div className="mb-12 max-w-3xl">
+
+            <p className="rr-label">
+              The Experience
+            </p>
+
+            <h2 className="rr-display rr-gold-gradient mt-8 text-4xl md:text-5xl lg:text-6xl">
               Designed for the night.
             </h2>
+
           </div>
 
+
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+
             {event.experience.features.map((feature, index) => (
+
               <article
                 key={feature.title}
                 className={`rr-card rr-frame ${
                   index === 0 ? "lg:col-span-2" : ""
                 }`}
               >
+
                 <div className="rr-corner rr-corner-top-left" />
+
                 <div className="rr-corner rr-corner-bottom-right" />
 
                 <p className="font-sans text-[10px] font-bold tracking-[0.2em] text-[#d6a52d]/60">
@@ -326,21 +383,32 @@ export default function EventPage() {
                 <p className="rr-editorial mt-6 max-w-xl text-2xl leading-relaxed text-[#fff5dd]">
                   {feature.description}
                 </p>
+
               </article>
+
             ))}
+
           </div>
+
         </div>
+
       </section>
+
 
       {/* =================================================
           DATE + VENUE
           ================================================= */}
 
       <section className="rr-section bg-[#08030f]">
+
         <div className="rr-container">
+
           <div className="grid gap-5 md:grid-cols-2">
-            {/* Date */}
+
+            {/* DATE */}
+
             <div className="rr-card rr-frame">
+
               <div className="rr-corner rr-corner-top-left" />
 
               <CalendarDays
@@ -349,15 +417,21 @@ export default function EventPage() {
                 className="text-[#f4d47a]"
               />
 
-              <p className="rr-label mt-7">Date</p>
+              <p className="rr-label mt-7">
+                Date
+              </p>
 
               <h3 className="rr-editorial mt-3 text-3xl text-[#fff5dd]">
                 {event.date.full}
               </h3>
+
             </div>
 
-            {/* Venue */}
+
+            {/* VENUE */}
+
             <div className="rr-card rr-frame">
+
               <div className="rr-corner rr-corner-top-left" />
 
               <MapPin
@@ -366,34 +440,39 @@ export default function EventPage() {
                 className="text-[#f4d47a]"
               />
 
-              <p className="rr-label mt-7">Venue</p>
+              <p className="rr-label mt-7">
+                Venue
+              </p>
 
               <h3 className="rr-editorial mt-3 text-3xl leading-snug text-[#fff5dd]">
                 {event.venue.full}
               </h3>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
+
 
       {/* =================================================
           FINAL CTA
-          A3.1 — TRUE CENTER ALIGNMENT
           ================================================= */}
 
       <section className="rr-section bg-[#08030f]">
+
         <div className="rr-container">
+
           <div className="flex w-full flex-col items-center justify-center text-center">
-            <p className="rr-label">See You There</p>
 
-            {/*
-              Each line is a width-sized flex item.
-              The parent centers all three items on the
-              exact same vertical axis.
-            */}
+            <p className="rr-label">
+              See You There
+            </p>
 
-            <div className="mt-8
- flex w-full flex-col items-center">
+            <div className="mt-8 flex w-full flex-col items-center">
+
               <span className="rr-display rr-gold-gradient w-fit text-center text-4xl leading-[0.95] sm:text-5xl md:text-6xl lg:text-7xl">
                 Come Dance.
               </span>
@@ -405,18 +484,28 @@ export default function EventPage() {
               <span className="rr-display rr-gold-gradient w-fit text-center text-4xl leading-[0.95] sm:text-5xl md:text-6xl lg:text-7xl">
                 Create Memories.
               </span>
+
             </div>
 
-            <Link
-              href="/"
+
+            {/* FINAL WHATSAPP BUTTON */}
+
+            <a
+              href={whatsappBookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rr-button rr-button-primary mt-10"
             >
-              Back to Rangratri
+              Book Your Pass
               <ArrowUpRight size={15} />
-            </Link>
+            </a>
+
           </div>
+
         </div>
+
       </section>
+
     </main>
   );
 }
