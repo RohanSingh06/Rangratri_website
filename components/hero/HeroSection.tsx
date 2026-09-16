@@ -143,40 +143,41 @@ export default function HeroSection() {
           </div>
 
           {/* CTAs */}
-          <div className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
-            <Link
-              href="/navratri-mahautsav-2026"
-              className="rr-button rr-button-primary w-full px-7 sm:w-auto"
-            >
-              Discover the Event
-              <ArrowUpRight size={15} />
-            </Link>
+            <div className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
+              <Link
+                href="/navratri-mahautsav-2026"
+                className="rr-button rr-button-primary w-full px-7 sm:w-auto"
+              >
+                Discover the Event
+                <ArrowUpRight size={15} />
+              </Link>
 
-            <Link
-              href="/memories"
-              className="rr-button rr-button-secondary w-full px-7 sm:w-auto"
-            >
-              2025 Memories
-            </Link>
+              <Link
+                href="/booking-counter"
+                className="rr-button rr-button-secondary w-full px-7 sm:w-auto"
+              >
+                Booking Counters
+                <ArrowUpRight size={15} />
+              </Link>
 
-            <Link
-              href="/creators"
-              className="rr-button rr-button-secondary w-full px-7 sm:w-auto"
-            >
-              Creator Competition
-              <ArrowUpRight size={15} />
-            </Link>
+              <Link
+                href="/creators"
+                className="rr-button rr-button-secondary w-full px-7 sm:w-auto"
+              >
+                Creator Competition
+                <ArrowUpRight size={15} />
+              </Link>
 
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rr-button rr-button-secondary w-full px-7 sm:w-auto"
-            >
-              WhatsApp Us
-              <MessageCircle size={15} />
-            </a>
-          </div>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rr-button rr-button-secondary w-full px-7 sm:w-auto"
+              >
+                WhatsApp Us
+                <MessageCircle size={15} />
+              </a>
+            </div>
 
           {/* Scroll indicator */}
           <a

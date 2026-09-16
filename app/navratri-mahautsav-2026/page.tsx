@@ -25,6 +25,18 @@ import { event } from "@/data/event";
 import { passes } from "@/data/passes";
 import { media } from "@/data/media";
 
+const whatsappBookingUrl =
+  "https://wa.me/919334661691?text=" +
+  encodeURIComponent(
+    "Hello Rangratri Events! I would like to enquire about the tickets for Navratri Mahautsav 2026. Please share the available pass details and booking information."
+  );
+
+const passPricing: Record<string, { regular: string; earlyBird: string }> = {
+  Solo: { regular: "₹600", earlyBird: "₹400" },
+  Couple: { regular: "₹1,200", earlyBird: "₹800" },
+  Group: { regular: "₹2,000", earlyBird: "₹1,300" },
+};
+
 /*
 -----------------------------------------------------------
 PAGE SEO METADATA
@@ -179,6 +191,79 @@ export default function EventPage() {
       </section>
 
       {/* =================================================
+          ENTRY PASSES
+          ================================================= */}
+
+      <section className="rr-section rr-atmosphere bg-[#10061c]">
+        <div className="rr-container">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="rr-label">Entry Passes</p>
+
+            <h2 className="rr-display rr-gold-gradient mt-8
+ text-4xl md:text-5xl">
+              Choose your way in.
+            </h2>
+
+            <div className="rr-divider mx-auto mt-8">
+              <span className="rr-divider-dot" />
+            </div>
+
+            <p className="rr-body mt-7 text-sm leading-7 text-[#eadfca]/60">
+              Early Bird prices are live. Limited passes available.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            {passes.map((pass) => (
+              <article
+                key={pass.id}
+                className="rr-card rr-frame flex min-h-[250px] flex-col"
+              >
+                <div className="rr-corner rr-corner-top-left" />
+                <div className="rr-corner rr-corner-bottom-right" />
+
+                <p className="rr-label">
+                  {pass.name}
+                </p>
+
+                <h3 className="rr-editorial mt-6 text-3xl text-[#fff5dd]">
+                  {pass.name} Pass
+                </h3>
+
+                <p className="rr-body mt-8
+ text-sm leading-7 text-[#eadfca]/65">
+                  {pass.description}
+                </p>
+
+                <div className="mt-auto pt-8">
+                  <p className="font-sans text-xs font-bold uppercase tracking-[0.16em] text-[#d6a52d]/70">
+                    Early Bird Offer
+                  </p>
+
+                  <div className="mt-2 flex items-baseline gap-3">
+                    <span className="font-sans text-sm text-[#eadfca]/45 line-through">
+                      {passPricing[pass.name]?.regular}
+                    </span>
+                    <span className="rr-display text-3xl text-[#f4d47a]">
+                      {passPricing[pass.name]?.earlyBird}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link href="#booking" className="rr-button rr-button-primary">
+              Book Now
+              <ArrowUpRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      {/* =================================================
           INTRODUCTION
           ================================================= */}
 
@@ -287,68 +372,6 @@ export default function EventPage() {
                 {event.venue.full}
               </h3>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =================================================
-          ENTRY PASSES
-          ================================================= */}
-
-      <section className="rr-section rr-atmosphere bg-[#10061c]">
-        <div className="rr-container">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="rr-label">Entry Passes</p>
-
-            <h2 className="rr-display rr-gold-gradient mt-8
- text-4xl md:text-5xl">
-              Choose your way in.
-            </h2>
-
-            <div className="rr-divider mx-auto mt-8">
-              <span className="rr-divider-dot" />
-            </div>
-
-            <p className="rr-body mt-7 text-sm leading-7 text-[#eadfca]/60">
-              Ticket sales will be announced soon.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {passes.map((pass) => (
-              <article
-                key={pass.id}
-                className="rr-card rr-frame flex min-h-[250px] flex-col"
-              >
-                <div className="rr-corner rr-corner-top-left" />
-                <div className="rr-corner rr-corner-bottom-right" />
-
-                <p className="rr-label">
-                  {pass.name}
-                </p>
-
-                <h3 className="rr-editorial mt-6 text-3xl text-[#fff5dd]">
-                  {pass.name} Pass
-                </h3>
-
-                <p className="rr-body mt-8
- text-sm leading-7 text-[#eadfca]/65">
-                  {pass.description}
-                </p>
-
-                <div className="mt-auto pt-8">
-                  <span className="font-sans text-xs font-bold uppercase tracking-[0.16em] text-[#d6a52d]/70">
-                    Pricing will be announced soon
-                  </span>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-10 flex justify-center">
-            <span className="rr-button rr-button-secondary pointer-events-none opacity-80">
-              Ticket Sales Launching Soon
-            </span>
           </div>
         </div>
       </section>

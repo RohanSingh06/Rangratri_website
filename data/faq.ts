@@ -38,7 +38,7 @@ export const faqs: FAQItem[] = [
     id: "ticket-pricing",
     question: "How much do the passes cost?",
     answer:
-      "Pass pricing will be announced through the official Rangratri channels.",
+      "Early Bird: Solo ₹400, Couple ₹800, Group ₹1,300. Regular: Solo ₹600, Couple ₹1,200, Group ₹2,000.",
     category: "Passes",
   },
   {
