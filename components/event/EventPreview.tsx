@@ -45,7 +45,7 @@ export default function EventPreview() {
 
               <div className="relative aspect-[210/297] w-full">
                 <Image
-                  src={media.event.launchingSoon}
+                  src="/assets/event/event banner.png"
                   alt="Navratri Mahautsav 2026 — Launching Soon"
                   fill
                   sizes="(max-width: 1024px) 90vw, 520px"
