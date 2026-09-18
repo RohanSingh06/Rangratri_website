@@ -114,7 +114,7 @@ export const sponsors2026 = {
       id: "sponsor-2026-pixus-films",
       name: "Pixus Films",
       type: "Media Partner",
-      logo: "\assets\sponsors-2026\pixus-films.PNG",
+      logo: "\assets\sponsors-2026\pixus-films.png",
     },
     {
       id: "sponsor-2026-diginesta",
