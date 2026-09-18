@@ -4,7 +4,7 @@ export const contact = {
     url: "https://www.instagram.com/rangratri.events/",
   },
 
-  phone: "+91-9334661691",
+  phone: "+91-9234976878",
 
   whatsapp: {
     number: "919334661691",

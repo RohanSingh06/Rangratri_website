@@ -26,7 +26,7 @@ import { passes } from "@/data/passes";
 import { media } from "@/data/media";
 
 const whatsappBookingUrl =
-  "https://wa.me/919334661691?text=" +
+  "https://wa.me/919234976878?text=" +
   encodeURIComponent(
     "Hello Rangratri Events! I would like to enquire about the tickets for Navratri Mahautsav 2026. Please share the available pass details and booking information."
   );
