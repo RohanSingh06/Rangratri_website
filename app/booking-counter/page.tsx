@@ -216,7 +216,7 @@ export default function BookingCounterPage() {
             </p>
 
             <a
-              href="https://wa.me/919334661691?text=Hello%20Rangratri%20Events!%20I%20would%20like%20to%20enquire%20about%20the%20Navratri%20Mahautsav%202026%20passes."
+              href="https://wa.me/919234976878?text=Hello%20Rangratri%20Events!%20I%20would%20like%20to%20enquire%20about%20the%20Navratri%20Mahautsav%202026%20passes."
               target="_blank"
               rel="noopener noreferrer"
               className="rr-button rr-button-primary mt-9"

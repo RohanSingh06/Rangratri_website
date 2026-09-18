@@ -7,7 +7,7 @@ export const contact = {
   phone: "+91-9234976878",
 
   whatsapp: {
-    number: "919334661691",
+    number: "919234976878",
     message:
       "Hi Rangratri Events, I would like to know more about Navratri Mahautsav 2026.",
   },
