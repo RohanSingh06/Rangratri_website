@@ -6,11 +6,7 @@ export interface TeamMember {
 }
 
 export const foundingPartners: TeamMember[] = [
-  {
-    name: "Sunny Mahto",
-    role: "Founding Partner",
-    image: "/team/sunny-mahto.webp",
-  },
+  
   {
     name: "Kunal Keshri",
     role: "Founding Partner",
@@ -22,6 +18,21 @@ export const foundingPartners: TeamMember[] = [
     image: "/team/ayush-gupta.webp",
   },
   {
+    name: "Rohan Singh",
+    role: "Founding Partner - Tech & Digital Marketing",
+    image: "/team/rohan-singh.webp",
+  },
+  {
+    name: "Sunny Mahto",
+    role: "Founding Partner",
+    image: "/team/sunny-mahto.webp",
+  },
+  {
+    name: "Priyanshu Agarwal",
+    role: "Founding Partner",
+    image: "/team/priyanshu-agarwal.webp",
+  },
+  {
     name: "Saurav Gupta",
     role: "Founding Partner",
     image: "/team/sourav-gupta.webp",
@@ -29,21 +40,13 @@ export const foundingPartners: TeamMember[] = [
 ];
 
 export const leadership: TeamMember[] = [
-  {
-    name: "Priyanshu Agarwal",
-    role: "Strategy & Operations Partner",
-    image: "/team/priyanshu-agarwal.webp",
-  },
+  
   {
     name: "Rahul Sharma",
     role: "Event Management Head",
     image: "/team/rahul-sharma.webp",
   },
-  {
-    name: "Rohan Singh",
-    role: "Tech & Digital Marketing Head",
-    image: "/team/rohan-singh.webp",
-  },
+  
   {
     name: "Himanshu Kaushik",
     role: "Influencer & Creator Relations Head",
