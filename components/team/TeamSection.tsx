@@ -10,6 +10,7 @@ interface TeamGroupProps {
 function TeamGroup({ title, members }: TeamGroupProps) {
   return (
     <div>
+      {/* Group heading */}
       <div className="mb-10 flex items-center justify-center gap-4">
         <span className="h-px w-10 bg-[#D9A62E]/40" />
 
@@ -20,12 +21,15 @@ function TeamGroup({ title, members }: TeamGroupProps) {
         <span className="h-px w-10 bg-[#D9A62E]/40" />
       </div>
 
-      <div className="grid grid-cols-2 gap-x-5 gap-y-12 sm:grid-cols-4 sm:gap-x-8">
+      {/* Team members */}
+      <div className="flex flex-wrap justify-center gap-x-8 gap-y-12">
         {members.map((member) => (
-          <TeamMemberCard
+          <div
             key={member.name}
-            {...member}
-          />
+            className="w-[250px] flex-shrink-0"
+          >
+            <TeamMemberCard {...member} />
+          </div>
         ))}
       </div>
     </div>
@@ -54,7 +58,9 @@ export default function TeamSection() {
 
           <div className="mx-auto mt-6 flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-[#D9A62E]/40" />
+
             <span className="text-[#D9A62E]">◆</span>
+
             <span className="h-px w-8 bg-[#D9A62E]/40" />
           </div>
 
@@ -63,13 +69,16 @@ export default function TeamSection() {
           </p>
         </header>
 
+        {/* Founding Partners */}
         <TeamGroup
           title="Founding Partners"
           members={foundingPartners}
         />
 
+        {/* Divider */}
         <div className="mx-auto my-20 h-px max-w-3xl bg-gradient-to-r from-transparent via-[#D9A62E]/25 to-transparent" />
 
+        {/* Leadership */}
         <TeamGroup
           title="Leadership"
           members={leadership}
