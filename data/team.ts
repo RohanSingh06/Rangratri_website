@@ -7,6 +7,11 @@ export interface TeamMember {
 
 export const foundingPartners: TeamMember[] = [
   
+   {
+    name: "Sunny Mahto",
+    role: "Founding Partner",
+    image: "/team/sunny-mahto.webp",
+  },
   {
     name: "Kunal Keshri",
     role: "Founding Partner",
@@ -23,19 +28,14 @@ export const foundingPartners: TeamMember[] = [
     image: "/team/rohan-singh.webp",
   },
   {
-    name: "Sunny Mahto",
+    name: "Saurav Gupta",
     role: "Founding Partner",
-    image: "/team/sunny-mahto.webp",
+    image: "/team/sourav-gupta.webp",
   },
   {
     name: "Priyanshu Agarwal",
     role: "Founding Partner",
     image: "/team/priyanshu-agarwal.webp",
-  },
-  {
-    name: "Saurav Gupta",
-    role: "Founding Partner",
-    image: "/team/sourav-gupta.webp",
   },
 ];
 
