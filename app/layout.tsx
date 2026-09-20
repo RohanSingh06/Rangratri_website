@@ -2,7 +2,7 @@
 ===========================================================
 RANGRATRI ROOT LAYOUT
 Step 14 — SEO + Performance
-Iteration: 14.3 — Open Graph / Social Metadata
+Iteration: 14.4 — Vercel Web Analytics
 
 Purpose:
 - Provide the global site shell.
@@ -10,12 +10,7 @@ Purpose:
 - Centralize global metadata through data/site.ts.
 - Configure social sharing metadata.
 - Keep Navbar and Footer consistent across all routes.
-
-Note:
-The current Launching Soon poster is portrait-oriented.
-It is used provisionally for social metadata. A dedicated
-1200 × 630 landscape social-preview asset can be added
-later for optimal link previews.
+- Enable Vercel Web Analytics.
 ===========================================================
 */
 
@@ -28,6 +23,8 @@ import {
   Cormorant_Garamond,
   Manrope,
 } from "next/font/google";
+
+import { Analytics } from "@vercel/analytics/next";
 
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -116,7 +113,6 @@ export const metadata: Metadata = {
 -----------------------------------------------------------
 ROOT LAYOUT
 -----------------------------------------------------------
------------------------------------------------------------
 */
 
 export default function RootLayout({
@@ -141,6 +137,9 @@ export default function RootLayout({
         </div>
 
         <Footer />
+
+        {/* Vercel Web Analytics */}
+        <Analytics />
       </body>
     </html>
   );
